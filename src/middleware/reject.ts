@@ -1,4 +1,4 @@
-import { Middleware } from './compose';
+import { Middleware } from '../lib/compose';
 
 export class UnexpectedResponseError extends Error {
   constructor(public readonly response: Response) {
@@ -6,19 +6,18 @@ export class UnexpectedResponseError extends Error {
   }
 }
 
-type Test = (response: Response) => boolean;
-
-export type RejectOptions = { test?: Test };
+export type Test = (response: Response) => boolean;
 
 const defaultTest: Test = ({ status }) => status >= 400;
 
-export function reject({ test }: RejectOptions = {}): Middleware {
-  return async (url, init, next) => {
+export const reject =
+  (test: Test = defaultTest): Middleware =>
+  async (url, init, next = fetch) => {
     const response = await next(url, init);
+
     if ((test || defaultTest)(response)) {
       throw new UnexpectedResponseError(response);
     }
 
     return response;
   };
-}

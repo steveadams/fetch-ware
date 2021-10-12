@@ -1,17 +1,28 @@
 {
+  "exclude": ["node_modules"],
   "compilerOptions": {
-    "strict": true,
-    "module": "commonjs",
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "sourceMap": true,
     "allowJs": true,
-    "lib": [
-      "es6",
-      "dom"
-    ],
-    "target": "ES5",
-    "rootDir": "src",
-    "moduleResolution": "node"
+    "allowSyntheticDefaultImports": true,
+    "checkJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "lib": ["esnext", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "esnext",
+    "incremental": true,
+    "noEmit": true,
+    "declaration": true,
+    "declarationMap": true,
+    "composite": true
   }
 }

@@ -1,3 +1,3 @@
-import { compose } from './compose';
+import { compose } from './lib/compose';
 
 compose([]);
